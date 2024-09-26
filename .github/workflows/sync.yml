@@ -2,7 +2,7 @@ name: Synchronize to forked repo
 on:
   push:
     branches:
-      - '**'
+      - '**' 
 
 jobs:
   sync:
@@ -10,12 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout develop
+      - name: Checkout current branch
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.FORKED_REPO_TOKEN }}
           fetch-depth: 0
-          ref: develop
 
       - name: Add remote-url
         run: |
@@ -25,7 +24,7 @@ jobs:
 
       - name: Push changes to forked-repo
         run: |
-          git push -f forked-repo develop
+          git push -f forked-repo HEAD:refs/heads/${{ github.ref_name }}
 
       - name: Clean up
         run: |
