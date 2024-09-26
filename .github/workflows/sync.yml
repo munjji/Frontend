@@ -1,22 +1,23 @@
-name: Synchronize to forked repo
+name: Synchronize to forked and upstream repo
+
 on:
   push:
     branches:
-      - '**' 
+      - '**' # 모든 브랜치에 대해 트리거
 
 jobs:
   sync:
-    name: Sync forked repo
+    name: Sync forked and upstream repo
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout current branch
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.FORKED_REPO_TOKEN }}
+          token: ${{ secrets.FORKED_REPO_TOKEN }} # 개인 레포지토리에 대한 권한 토큰
           fetch-depth: 0
 
-      - name: Add remote-url
+      - name: Add remote-url for forked repo
         run: |
           git remote add forked-repo https://sangmaaaaan:${{ secrets.FORKED_REPO_TOKEN }}@github.com/sangmaaaaan/Frontend
           git config user.name sangmaaaaan
@@ -24,8 +25,19 @@ jobs:
 
       - name: Push changes to forked-repo
         run: |
-          git push -f forked-repo HEAD:refs/heads/${{ github.ref_name }}
+          git push -f forked-repo HEAD:refs/heads/${{ github.ref_name }} # forked 레포지토리로 현재 브랜치를 푸시
+
+      - name: Add remote-url for upstream repo # upstream 리포지토리에 대한 설정 추가
+        run: |
+          git remote add upstream https://sangmaaaaan:${{ secrets.FORKED_REPO_TOKEN }}@github.com/2024-9oormthonUNIV-Team-7/Frontend.git
+          git config user.name sangmaaaaan
+          git config user.email matthew10164@gmail.com
+
+      - name: Push changes to upstream repo # upstream 레포지토리로 변경 사항 푸시
+        run: |
+          git push -f upstream HEAD:refs/heads/${{ github.ref_name }} # upstream 레포지토리로 현재 브랜치를 동일하게 푸시
 
       - name: Clean up
         run: |
-          git remote remove forked-repo
+          git remote remove forked-repo # forked 레포지토리 리모트 삭제
+          git remote remove upstream # upstream 레포지토리 리모트 삭제
