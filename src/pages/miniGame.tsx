@@ -10,6 +10,7 @@ const MiniGame: React.FC = () => {
   const [gameType, setGameType] = useState<string>('반말 모드');
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isRunning, setIsRunning] = useState<boolean>(false);
+  const [pendingAction, setPendingAction] = useState<(() => void) | null>(null); // 클릭된 액션을 저장할 상태
 
   const gameList = [
     { id: 1, name: '반말 모드', description: '반말로 대화하는 게임입니다.' },
@@ -17,12 +18,21 @@ const MiniGame: React.FC = () => {
     { id: 3, name: '초성 퀴즈', description: '초성을 맞추는 퀴즈 게임입니다.' },
   ];
 
-  const handleModalOpen = () => {
+  const handleModalOpen = (action: () => void) => {
+    setPendingAction(() => action); // 클릭한 액션 저장
     setIsModalOpen(true);
   };
 
   const handleModalClose = () => {
     setIsModalOpen(false);
+  };
+
+  const handleConfirmAction = () => {
+    if (pendingAction) {
+      pendingAction(); // 저장된 액션 실행
+    }
+    setIsModalOpen(false);
+    setPendingAction(null); // 액션 초기화
   };
 
   const handleToggleRunning = () => {
@@ -53,13 +63,13 @@ const MiniGame: React.FC = () => {
       <NavBar subject="game" />
       <ShowGame
         name={gameType}
-        onButtonClick={isRunning ? handleModalOpen : undefined}
+        onButtonClick={isRunning ? () => handleModalOpen(handleNextGame) : handleNextGame}
         onPrevious={handlePreviousGame}
         onNext={handleNextGame}
       />
       {gameType === '훈민정음' || gameType === '반말 모드' ? (
         <ButtonCloud
-          key={gameType} // key 속성 추가
+          key={gameType}
           name={gameType}
           explanation={currentGameDescription}
           isRunning={isRunning}
@@ -70,7 +80,7 @@ const MiniGame: React.FC = () => {
       ) : (
         <ExplainCloud explanation={currentGameDescription} />
       )}
-      <GameModal isOpen={isModalOpen} onClose={handleModalClose} />
+      <GameModal isOpen={isModalOpen} onClose={handleModalClose} onConfirm={handleConfirmAction} />
     </div>
   );
 };

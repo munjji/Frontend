@@ -2,9 +2,9 @@ import React from 'react';
 
 interface ShowGameProps {
   name: string;
-  onButtonClick?: () => void;
-  onPrevious?: () => void;
-  onNext?: () => void;
+  onButtonClick?: () => void; // 버튼 클릭 핸들러
+  onPrevious?: () => void; // 이전 게임 핸들러
+  onNext?: () => void; // 다음 게임 핸들러
 }
 
 const ShowGame: React.FC<ShowGameProps> = ({ name, onButtonClick, onPrevious, onNext }) => {
@@ -14,8 +14,8 @@ const ShowGame: React.FC<ShowGameProps> = ({ name, onButtonClick, onPrevious, on
         <img className="w-[48px] h-[48px]" src="/assets/left_arrow.svg" alt="left_arrow" />
       </button>
       <p className="text-[48px] text-center whitespace-nowrap">{name}</p>
-      <button type="button" onClick={onNext}>
-        <img src="/assets/right_arrow.svg" alt="right_arrow" />
+      <button type="button" onClick={onButtonClick}>
+        <img className="w-[48px] h-[48px]" src="/assets/right_arrow.svg" alt="right_arrow" />
       </button>
     </div>
   );
