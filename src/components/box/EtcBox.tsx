@@ -21,7 +21,7 @@ const EtcBox: React.FC<EtcBoxProps> = ({
   balance,
   onBoarding,
 }) => {
-  const boxStyle: string = `flex flex-col ${bgColors[color]} justify-center items-center border border-2 border-black w-[335px] px-[32px] py-[20px] rounded-description shadow-description`;
+  const boxStyle: string = `flex flex-col ${bgColors[color]} justify-center items-center border border-2 border-txt_primary w-[335px] px-[32px] py-[20px] h-full rounded-description shadow-description`;
 
   return (
     <div className={boxStyle}>
