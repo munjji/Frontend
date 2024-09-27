@@ -49,6 +49,8 @@ module.exports = {
         200: '#9FF3D0',
         100: '#D8FBED',
       },
+      headerText: '#000000', // Black 컬러
+      bodyText: '#1F2937', // Gray 800 컬러
     },
     extend: {
       // components 분기의 padding 확장
@@ -59,6 +61,9 @@ module.exports = {
         'min-10px': '10px',
       },
       // develop 분기의 스타일 확장
+      fontFamily: {
+        sans: ['Galmuri14', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif'], // 수정된 부분
+      },
       fontSize: {
         base: '16px',
         large: '24px',
@@ -79,8 +84,6 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {},
-  },
+  variants: {},
   plugins: [],
 };
