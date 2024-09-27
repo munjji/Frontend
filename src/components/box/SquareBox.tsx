@@ -13,7 +13,7 @@ const SquareBox: React.FC<SquareBoxProps> = ({ color, content, question }) => {
   return (
     <div className={boxStyle}>
       {!question ? (
-        <div className="text-[24px] text-center leading-content whitespace-pre-wrap max-w-[123px] max-h-[123px] break-words">
+        <div className="text-[24px] text-center leading-content whitespace-pre-wrap max-w-[123px] max-h-[123px] overflow-hidden break-words">
           {content}
         </div>
       ) : (
