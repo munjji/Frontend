@@ -19,6 +19,7 @@ module.exports = {
       lineHeight: {
         title: '33.6px',
         content: '24px',
+        onBoarding: '16.8px',
       },
       colors: {
         txt_primary: '#000000',
