@@ -15,7 +15,7 @@ const AppRoutes: React.FC = () => {
     return (
       <Switch>
         {/* 랜딩 페이지 */}
-        <Route path="/" component={Landing} />
+        <Route exact path="/" component={Landing} />
         
         {/* 플랜 페이지 */}
         <Route path="/plans" component={Plans} />
