@@ -1,19 +1,15 @@
 import React from 'react';
 import titleContentsData from 'data/titleContentsData';
+import bgColors from 'data/bgColors';
 
 interface ExpandedBoxProps {
   title: string;
-  color: keyof typeof colors; // colors 객체의 키만 허용
+  color: keyof typeof bgColors;
   isClick: boolean;
 }
 
-const colors = {
-  main: 'bg-[#F7FF00]',
-  white: 'bg-white',
-};
-
 const ExpandedBox: React.FC<ExpandedBoxProps> = ({ title, isClick, color }) => {
-  const boxStyle: string = `flex flex-col ${colors[color]} justify-center items-center border border-2 border-black gap-[21px] w-[335px] px-[32px] py-[38px] rounded-description shadow-description`;
+  const boxStyle: string = `flex flex-col ${bgColors[color]} justify-center items-center border border-2 border-black gap-[21px] w-[335px] px-[32px] py-[38px] rounded-description shadow-description`;
   return (
     <div className={boxStyle}>
       <div className="flex gap-[10px]">
