@@ -1,7 +1,7 @@
 import { ModalProps } from 'types/Modal.type';
 import { LargeButton } from './Button';
 
-//  LargetButton에서의 Prop만 설정 후 사용 가능
+//  LargeButton에서의 Prop만 설정 후 사용 가능
 export const Modal = ({ innerText }: ModalProps) => {
   return (
     <div className="absolute flex flex-col items-start w-[326px] min-h-[184px] left-[calc(50%-163px)] top-[calc(50%-100px)] drop-shadow-[0_4px_4px_rgba(0,0,0,1)] min-p-20px">
