@@ -4,10 +4,9 @@ import { LargeButton } from 'components/Button/Button';
 
 const ExplainCloud: React.FC<{ explanation: string }> = ({ explanation }) => {
   return (
-    <div className="absolute flex flex-col items-center justify-center bottom-[44px]">
+    <div className="absolute flex flex-col items-center justify-center bottom-[64px]">
       <Description text={explanation} />
-      <img className="mb-[-45px]" src="/assets/Char/smile.svg" alt="smile" />
-      <LargeButton text="시작하기" />
+      <img src="/assets/Char/smile.svg" alt="smile" />
     </div>
   );
 };

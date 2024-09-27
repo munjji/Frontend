@@ -6,7 +6,7 @@ const ShowGame: React.FC<{ name: string }> = ({ name }) => {
       <button type="button">
         <img className="w-[48px] h-[48px]" src="/assets/left_arrow.svg" alt="left_arrow" />
       </button>
-      <p className="text-[48px] text-center">{name}</p>
+      <p className="text-[48px] text-center whitespace-nowrap">{name}</p>
       <button type="button">
         <img src="/assets/right_arrow.svg" alt="right_arrow" />
       </button>
