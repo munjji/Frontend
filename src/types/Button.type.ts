@@ -1,5 +1,6 @@
 export interface ButtonProps {
-  text: string;
+  text?: string;
   textColor?: string;
   bgColor?: string;
+  children?: React.ReactNode;
 }
