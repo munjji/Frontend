@@ -3,7 +3,7 @@ import NavBar from 'components/NavBar';
 import Description from 'components/ToolTips/Description';
 import EtcBox from 'components/box/EtcBox';
 
-const BalanceGame = () => {
+const BalanceGame: React.FC = () => {
   return (
     <div className="flex justify-center items-center">
       <div className="flex flex-col w-[375px] h-[860px] p-4 bg-background_color relative">
