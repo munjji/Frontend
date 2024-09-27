@@ -2,7 +2,23 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    colors: {
+    extend: {
+      fontSize: {
+        base: '16px',
+      },
+      borderRadius: {
+        description: '16px',
+      },
+      boxShadow: {
+        description: '0px 4px 4px 0px #000',
+      },
+      dropShadow: {
+        triangle: '0px 4px 4px 0px #000',
+      },
+      lineHeight: {
+        title: '33.6px',
+        content: '24px',
+      },
       colors: {
         txt_primary: '#000000',
         txt_secondary: '#616272',
@@ -21,7 +37,6 @@ module.exports = {
           100: '#edeff2',
           50: '#f5f6f8',
         },
-
         white: '#ffffff',
         main: {
           900: '#745B0F',
@@ -52,20 +67,6 @@ module.exports = {
           200: '#9FF3D0',
           100: '#D8FBED',
         },
-      },
-      fontSize: {
-        base: '16px',
-      },
-    },
-    extend: {
-      borderRadius: {
-        description: '16px',
-      },
-      boxShadow: {
-        description: '0px 4px 4px 0px #000',
-      },
-      dropShadow: {
-        triangle: '0px 4px 4px 0px #000',
       },
     },
     variants: {
