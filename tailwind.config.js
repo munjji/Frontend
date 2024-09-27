@@ -62,7 +62,20 @@ module.exports = {
       },
       // develop 분기의 스타일 확장
       fontFamily: {
-        sans: ['Galmuri14', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif'], // 수정된 부분
+        sans: [
+          'Galmuri14',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Oxygen',
+          'Ubuntu',
+          'Cantarell',
+          'Fira Sans',
+          'Droid Sans',
+          'Helvetica Neue',
+          'sans-serif',
+        ], // 수정된 부분
       },
       fontSize: {
         base: '16px',
