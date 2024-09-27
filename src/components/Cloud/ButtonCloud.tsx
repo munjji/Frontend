@@ -3,14 +3,21 @@ import Description from 'components/toolTips/Description';
 import Timer from 'components/toolTips/Timer';
 import React, { useState } from 'react';
 
-const ButtonCloud: React.FC<{ name: string; explanation: string }> = ({ name, explanation }) => {
-  const [isRunning, setIsRunning] = useState(false);
-  const [minutes, setMinutes] = useState<number>(0); // 초기값을 0으로 설정
-  const [seconds, setSeconds] = useState<number>(0); // 초기값을 0으로 설정
+interface ButtonCloudProps {
+  name: string;
+  explanation: string;
+  isRunning: boolean; // isRunning prop 추가
+  onToggleRunning: () => void; // 상태 변경 핸들러 추가
+}
 
-  const handleToggle = () => {
-    setIsRunning((prev) => !prev);
-  };
+const ButtonCloud: React.FC<ButtonCloudProps> = ({
+  name,
+  explanation,
+  isRunning,
+  onToggleRunning,
+}) => {
+  const [minutes, setMinutes] = useState<number>(0);
+  const [seconds, setSeconds] = useState<number>(0);
 
   const handleTimeUpdate = (mins: number, secs: number) => {
     setMinutes(mins);
@@ -26,14 +33,13 @@ const ButtonCloud: React.FC<{ name: string; explanation: string }> = ({ name, ex
           text={
             isRunning || (minutes === 0 && seconds === 0)
               ? explanation
-              : `${minutes}분 ${seconds}초나 진행했어요!
-다음 게임도 진행해볼까요?`
+              : `${minutes}분 ${seconds}초나 진행했어요! 다음 게임도 진행해볼까요?`
           }
         />
       )}
       <img className="mb-[-45px]" src="/assets/Char/smile.svg" alt="smile" />
       <LargeButton
-        onClick={handleToggle}
+        onClick={onToggleRunning} // 상태 변경 핸들러 사용
         text={
           isRunning ? '그만하기' : minutes === 0 && seconds === 0 ? '시작하기' : '다시 시작하기'
         }
