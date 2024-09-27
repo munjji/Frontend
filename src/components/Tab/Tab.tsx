@@ -1,5 +1,4 @@
-import { XSmallButton } from './Button';
-import { ReactComponent as QuestionIcon } from '../assets/_.svg';
+import { XSmallButton } from '../Button/Button';
 
 export const Tab = () => {
   return (
@@ -8,7 +7,7 @@ export const Tab = () => {
       <XSmallButton text="시간 조율" />
       <XSmallButton text="스몰 토크" />
       <XSmallButton>
-        <QuestionIcon />
+        <img src="/assets/question-mark.svg" alt="question-mark" />
       </XSmallButton>
     </div>
   );

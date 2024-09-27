@@ -1,5 +1,5 @@
 import { ModalProps } from 'types/Modal.type';
-import { LargeButton } from './Button';
+import { LargeButton } from '../Button/Button';
 
 //  LargeButton에서의 Prop만 설정 후 사용 가능
 export const Modal = ({ innerText }: ModalProps) => {
