@@ -16,6 +16,21 @@ const titleContentsData: { [key: string]: titleContents } = {
     content:
       '간단한 게임으로 어색함을 풀고, \n함께 웃으며 즐겨보세요! \n벌칙을 자유롭게 정해서 진행하면 \n더욱 재미있게 즐길 수 있어요.',
   },
+  drink: {
+    title: '술자리',
+    content:
+      '술자리에서 즐길 수 있는 스몰토크 주제, \n밸런스 게임, 미니 게임을 랜덤으로 \n추천해드려요. \n지루할 틈 없이 분위기를 200%까지 \n끌어올려요!',
+  },
+  team: {
+    title: '팀플/프로젝트',
+    content:
+      '팀플 등 학우들과 처음 만난 자리에서 \n나눌 수 있는 대화 주제를 추천해 드려요! \n성공적인 팀플을 위해 Good Luck...☘️',
+  },
+  networking: {
+    title: '네트워킹 파티',
+    content:
+      '같은 업계, 혹은 다른 업계의 사람들과 \n함께 만나는 자리에서 아이스브레이킹해요. \n업무/커리어와 관련된 질문을 \n추천해드릴게요!',
+  },
 };
 
 export default titleContentsData;
