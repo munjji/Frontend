@@ -20,7 +20,6 @@ module.exports = {
         100: '#edeff2',
         50: '#f5f6f8',
       },
-
       white: '#ffffff',
       main: {
         900: '#745B0F',
@@ -33,7 +32,6 @@ module.exports = {
         200: '#EAFF86',
         100: '#F2FFC1',
       },
-
       // System 색상
       red: {
         400: '#CE3E57',
@@ -53,11 +51,31 @@ module.exports = {
       },
     },
     extend: {
+      // components 분기의 padding 확장
       padding: {
         'min-24px': '24px',
         'min-20px': '20px',
         'min-16px': '16px',
         'min-10px': '10px',
+      },
+      // develop 분기의 스타일 확장
+      fontSize: {
+        base: '16px',
+        large: '24px',
+      },
+      borderRadius: {
+        description: '16px',
+      },
+      boxShadow: {
+        description: '0px 4px 4px 0px #000',
+      },
+      dropShadow: {
+        triangle: '0px 4px 4px 0px #000',
+      },
+      lineHeight: {
+        title: '33.6px',
+        content: '24px',
+        onBoarding: '16.8px',
       },
     },
   },
