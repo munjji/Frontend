@@ -12,9 +12,9 @@ const MiniGame: React.FC = () => {
   const [isRunning, setIsRunning] = useState<boolean>(false);
 
   const gameList = [
-    { id: 1, name: '반말 모드', description: '설명...' },
-    { id: 2, name: '훈민정음', description: '설명...' },
-    { id: 3, name: '초성 퀴즈', description: '설명...' },
+    { id: 1, name: '반말 모드', description: '반말로 대화하는 게임입니다.' },
+    { id: 2, name: '훈민정음', description: '훈민정음을 배우는 게임입니다.' },
+    { id: 3, name: '초성 퀴즈', description: '초성을 맞추는 퀴즈 게임입니다.' },
   ];
 
   const handleModalOpen = () => {
@@ -31,23 +31,22 @@ const MiniGame: React.FC = () => {
 
   const handlePreviousGame = () => {
     const currentIndex = gameList.findIndex((game) => game.name === gameType);
-    if (currentIndex > 0) {
-      setGameType(gameList[currentIndex - 1].name);
-    } else {
-      // 현재가 첫 번째 게임일 경우, 마지막 게임으로 이동
-      setGameType(gameList[gameList.length - 1].name);
-    }
+    const newGameType =
+      currentIndex > 0 ? gameList[currentIndex - 1].name : gameList[gameList.length - 1].name;
+    setGameType(newGameType);
+    setIsRunning(false); // 게임 변경 시 스톱워치 중지
   };
 
   const handleNextGame = () => {
     const currentIndex = gameList.findIndex((game) => game.name === gameType);
-    if (currentIndex < gameList.length - 1) {
-      setGameType(gameList[currentIndex + 1].name);
-    } else {
-      // 현재가 마지막 게임일 경우, 첫 번째 게임으로 이동
-      setGameType(gameList[0].name);
-    }
+    const newGameType =
+      currentIndex < gameList.length - 1 ? gameList[currentIndex + 1].name : gameList[0].name;
+    setGameType(newGameType);
+    setIsRunning(false); // 게임 변경 시 스톱워치 중지
   };
+
+  // 현재 게임에 대한 설명 찾기
+  const currentGameDescription = gameList.find((game) => game.name === gameType)?.description || '';
 
   return (
     <div className="flex flex-col items-center">
@@ -60,15 +59,16 @@ const MiniGame: React.FC = () => {
       />
       {gameType === '훈민정음' || gameType === '반말 모드' ? (
         <ButtonCloud
+          key={gameType} // key 속성 추가
           name={gameType}
-          explanation="외국어, 외래어를 사용하지 않는 게임이에요. 시작 버튼을 누르면 제가 타이머를 셀게요!"
+          explanation={currentGameDescription}
           isRunning={isRunning}
           onToggleRunning={handleToggleRunning}
         />
       ) : gameType === '초성 퀴즈' ? (
         <RandomCloud />
       ) : (
-        <ExplainCloud explanation="외국어, 외래어를 사용하지 않는 게임이에요. 시작 버튼을 누르면 제가 타이머를 셀게요!" />
+        <ExplainCloud explanation={currentGameDescription} />
       )}
       <GameModal isOpen={isModalOpen} onClose={handleModalClose} />
     </div>

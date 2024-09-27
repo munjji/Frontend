@@ -39,7 +39,7 @@ const ButtonCloud: React.FC<ButtonCloudProps> = ({
       )}
       <img className="mb-[-45px]" src="/assets/Char/smile.svg" alt="smile" />
       <LargeButton
-        onClick={onToggleRunning} // 상태 변경 핸들러 사용
+        onClick={onToggleRunning}
         text={
           isRunning ? '그만하기' : minutes === 0 && seconds === 0 ? '시작하기' : '다시 시작하기'
         }
