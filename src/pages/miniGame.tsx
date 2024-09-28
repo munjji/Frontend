@@ -11,7 +11,7 @@ import { getMinigames } from 'hooks/useGame';
 import { Minigame } from 'types/Minigame.type';
 
 const MiniGame: React.FC = () => {
-  const { data, error } = useQuery<MinigameResponse, Error>('minigames', getMinigames);
+  const { data, error, isLoading } = useQuery<MinigameResponse, Error>('minigames', getMinigames);
 
   const gameList: Minigame[] = data?.minigames || [];
   const [gameType, setGameType] = useState<string>('');
@@ -22,7 +22,6 @@ const MiniGame: React.FC = () => {
   if (error) {
     return <div>Error: {error.message}</div>; // UI에 에러 메시지 표시
   }
-
   const handleModalOpen = (action: () => void) => {
     setPendingAction(() => action);
     setIsModalOpen(true);
