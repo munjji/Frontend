@@ -1,6 +1,12 @@
 import { ButtonProps } from 'types/Button.type';
 
-export const LargeButton = ({ text, bgColor, textColor = 'text-black', onClick }: ButtonProps) => {
+export const LargeButton = ({
+  text,
+  bgColor,
+  textColor = 'text-black',
+  onClick,
+  img,
+}: ButtonProps) => {
   return (
     <button
       onClick={onClick}
@@ -8,6 +14,7 @@ export const LargeButton = ({ text, bgColor, textColor = 'text-black', onClick }
         bgColor ? bgColor : 'bg-main_primary'
       }`}
     >
+      {img ? <img src="/assets/google.svg" alt="google" /> : ''}
       <span className={`text-2xl leading-[140%] flex justify-center items-center ${textColor}`}>
         {text}
       </span>

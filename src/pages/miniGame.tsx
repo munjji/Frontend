@@ -22,6 +22,10 @@ const MiniGame: React.FC = () => {
   if (error) {
     return <div>Error: {error.message}</div>; // UI에 에러 메시지 표시
   }
+
+  if (data) {
+    console.log(data);
+  }
   const handleModalOpen = (action: () => void) => {
     setPendingAction(() => action);
     setIsModalOpen(true);
