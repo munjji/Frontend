@@ -1,6 +1,6 @@
 import { LargeButton } from 'components/Button/Button';
 import Description from 'components/ToolTips/Description';
-import Timer from 'components/toolTips/Timer';
+import Timer from 'components/ToolTips/Timer';
 import React, { useState } from 'react';
 
 interface ButtonCloudProps {

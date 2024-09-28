@@ -1,6 +1,5 @@
-import Description from 'components/toolTips/Description';
+import Description from 'components/ToolTips/Description';
 import React from 'react';
-import { LargeButton } from 'components/Button/Button';
 
 const ExplainCloud: React.FC<{ explanation: string }> = ({ explanation }) => {
   return (

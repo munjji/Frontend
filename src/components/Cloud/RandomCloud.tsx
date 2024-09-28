@@ -1,5 +1,5 @@
 import { LargeButton } from 'components/Button/Button';
-import Initial from 'components/toolTips/Initial';
+import Initial from 'components/ToolTips/Initial';
 import initialConsonants from 'data/initialConstatnts';
 import React, { useState } from 'react';
 
