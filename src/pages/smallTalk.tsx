@@ -1,9 +1,43 @@
+<<<<<<< Updated upstream
+=======
+import React, { useEffect, useState } from 'react';
+>>>>>>> Stashed changes
 import { LargeButton } from 'components/Button/Button';
 import NavBar from 'components/Bar/NavBar';
 import Description from 'components/ToolTips/Description';
+import { useQuery } from 'react-query';
+import { SmalltalkResponse } from 'types/SmalltalkResponse';
+import { getSmalltalks } from 'hooks/useSmall';
+import { Smalltalk } from 'types/Smalltalk.type';
 
+<<<<<<< Updated upstream
 //  MBTI 부분을 텍스트로 받아와야 함
 const SmallTalk: React.FC = () => {
+=======
+const SmallTalk: React.FC = () => {
+  const { data, error, isLoading } = useQuery<SmalltalkResponse, Error>('subject', getSmalltalks);
+
+  if (error) {
+    console.log(error.message);
+  }
+
+  const [smallTalkList, setSmallTalkList] = useState<Smalltalk[]>([]);
+
+  useEffect(() => {
+    if (data) {
+      setSmallTalkList(data.talk_subjects);
+    }
+  }, [data]);
+
+  const [currentTopic, setCurrentTopic] = useState(0);
+
+  const handleNextTopic = () => {
+    if (smallTalkList) {
+      setCurrentTopic((prev) => (prev + 1) % smallTalkList.length);
+    }
+  };
+
+>>>>>>> Stashed changes
   return (
     <div>
       <div className="flex justify-center items-center">
@@ -31,6 +65,17 @@ const SmallTalk: React.FC = () => {
             </div>
           </div>
         </div>
+<<<<<<< Updated upstream
+=======
+        <div className="absolute text-6xl top-64">
+          {smallTalkList ? smallTalkList[currentTopic]?.subject : '주제가 없습니다.'}
+        </div>
+      </div>
+      <div className="absolute flex flex-col justify-center items-center w-[352px] bottom-[44px]">
+        <Description text={smallTalkList ? smallTalkList[currentTopic]?.description : ''} />
+        <img className="mb-[-45px]" src="/assets/GoormCharacter.svg" alt="goorm-character" />
+        <LargeButton text="다른 게임 할래요" onClick={handleNextTopic} />
+>>>>>>> Stashed changes
       </div>
     </div>
   );
