@@ -4,7 +4,7 @@ export const LargeButton = ({ text, bgColor, textColor = 'text-black', onClick }
   return (
     <button
       onClick={onClick}
-      className={`flex justify-center items-center gap-2 px-min-24px py-4 h-[70px] w-full max-w-full min-w-[142px] border-txt_primary border-2 shadow-[0_4px_4px_rgba(0,0,0,1)] rounded-[16px] ${
+      className={`flex justify-center items-center gap-2 px-min-24px py-4 h-[70px] w-[162px] min-w-[142px] border-txt_primary border-2 shadow-[0_4px_4px_rgba(0,0,0,1)] rounded-[16px] ${
         bgColor ? bgColor : 'bg-main_primary'
       }`}
     >
@@ -62,6 +62,28 @@ export const XSmallButton = ({
           {text}
         </span>
       )}
+    </button>
+  );
+};
+
+export const XLargeButton = ({
+  text,
+  bgColor,
+  textColor = 'text-black',
+  onClick,
+  img,
+}: ButtonProps) => {
+  return (
+    <button
+      onClick={onClick}
+      className={`flex justify-center items-center gap-2 px-min-24px py-4 h-[70px] w-[335px] min-w-[142px] border-txt_primary border-2 shadow-[0_4px_4px_rgba(0,0,0,1)] rounded-[16px] ${
+        bgColor ? bgColor : 'bg-main_primary'
+      }`}
+    >
+      {img ? <img src="/assets/google.svg" alt="google" /> : ''}
+      <span className={`text-2xl leading-[140%] flex justify-center items-center ${textColor}`}>
+        {text}
+      </span>
     </button>
   );
 };
