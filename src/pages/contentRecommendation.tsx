@@ -15,13 +15,18 @@ const ContentRecommendation: React.FC = () => {
       <div className="absolute bottom-[47px] flex flex-col justify-center items-center">
         <img className="mb-[-45px]" src="/assets/Char/lip.svg" alt="cloud_lip" />
         <div className="flex flex-col justify-center items-center gap-y-[16px]">
-          {['drink', 'team', 'networking'].map((title, index) => (
+          {[
+            { title: 'drink', url: '/plans/content-recommendation/drinking' },
+            { title: 'team', url: '/plans/content-recommendation/team-project' },
+            { title: 'networking', url: '/plans/content-recommendation/networking-party' },
+          ].map((item, index) => (
             <ExpandedBox
-              key={title}
-              title={title}
+              key={item.title}
+              title={item.title}
               color="main"
               isClick={activeBoxIndex !== index}
               onClick={() => handleBoxClick(index)}
+              redirectUrl={item.url} // URL 전달
             />
           ))}
         </div>

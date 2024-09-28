@@ -6,11 +6,11 @@ import { useHistory } from 'react-router-dom';
 const Plans: React.FC = () => {
   const history = useHistory();
 
-  const goToIce: React.MouseEventHandler<HTMLButtonElement> = () => {
+  const goToIce = () => {
     history.push(`/plans/ice-breaking`);
   };
 
-  const goToSituation: React.MouseEventHandler<HTMLButtonElement> = () => {
+  const goToSituation = () => {
     history.push(`/plans/content-recommendation`);
   };
 
@@ -18,12 +18,8 @@ const Plans: React.FC = () => {
     <div className="flex flex-col items-center">
       <NavBar subject="플랜 둘러보기" nonIcon />
       <div className="absolute flex flex-col gap-y-[16px] justify-center items-center bottom-[34px]">
-        <button type="button" onClick={goToIce}>
-          <ExpandedBox title="iceBraking" color="main" isClick={false} />
-        </button>
-        <button type="button" onClick={goToSituation}>
-          <ExpandedBox title="situation" color="main" isClick={false} />
-        </button>
+        <ExpandedBox title="iceBraking" color="main" onClick={goToIce} isClick={false} />
+        <ExpandedBox title="situation" color="main" onClick={goToSituation} isClick={false} />
       </div>
     </div>
   );

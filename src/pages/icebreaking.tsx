@@ -15,13 +15,18 @@ const IceBreaking: React.FC = () => {
       <div className="absolute bottom-[47px] flex flex-col justify-center items-center">
         <img className="mb-[-45px]" src="/assets/Char/lip.svg" alt="cloud_lip" />
         <div className="flex flex-col justify-center items-center gap-y-[16px]">
-          {['vs', 'cloud', 'game'].map((title, index) => (
+          {[
+            { title: 'vs', url: '/plans/ice-breaking/balance-game' },
+            { title: 'cloud', url: '/plans/ice-breaking/small-talk' },
+            { title: 'game', url: '/plans/ice-breaking/mini-game' },
+          ].map((item, index) => (
             <ExpandedBox
-              key={title}
-              title={title}
+              key={item.title}
+              title={item.title}
               color="main"
               isClick={activeBoxIndex !== index}
               onClick={() => handleBoxClick(index)}
+              redirectUrl={item.url} // URL 전달
             />
           ))}
         </div>
