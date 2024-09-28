@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './routes/app-routes';
 import './index.css'; // Tailwind CSS를 사용하기 위해 추가

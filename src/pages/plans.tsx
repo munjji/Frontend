@@ -7,7 +7,7 @@ const Plans: React.FC = () => {
   const history = useHistory();
 
   const goToIce: React.MouseEventHandler<HTMLButtonElement> = () => {
-    history.push(`/plans/ice-braking`);
+    history.push(`/plans/ice-breaking`);
   };
 
   const goToSituation: React.MouseEventHandler<HTMLButtonElement> = () => {
