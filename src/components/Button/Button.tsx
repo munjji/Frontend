@@ -1,3 +1,5 @@
+import QuestionDiv from 'components/box/QuestionDiv';
+import { useState } from 'react';
 import { ButtonProps } from 'types/Button.type';
 
 export const LargeButton = ({ text, bgColor, textColor = 'text-black', onClick }: ButtonProps) => {
@@ -43,25 +45,15 @@ export const SmallButton = ({ text, bgColor, textColor = 'text-black' }: ButtonP
   );
 };
 
-export const XSmallButton = ({
-  text,
-  bgColor,
-  textColor = 'text-black',
-  children,
-}: ButtonProps) => {
+export const XSmallButton: React.FC<ButtonProps> = ({ text, textColor, bgColor, onClick }) => {
   return (
     <button
-      className={`flex justify-center items-center gap-2 px-2 py-2 h-[33px] min-w-[40px] border-txt_primary border-2 shadow-[0_4px_4px_rgba(0,0,0,1)] rounded-[12px] ${
-        bgColor ? bgColor : 'bg-main_primary'
-      }`}
+      onClick={onClick}
+      className={`flex justify-center items-center px-[12px] py-[11px] h-[33px] border-txt_primary border-2 shadow-[0_4px_4px_rgba(0,0,0,1)] rounded-[12px] w-auto ${bgColor}`}
     >
-      {children ? (
-        <div className="flex justify-center items-center w-full h-full">{children}</div>
-      ) : (
-        <span className={`text-xs leading-[140%] flex justify-center items-center ${textColor}`}>
-          {text}
-        </span>
-      )}
+      <span className={`text-xs leading-[140%] flex justify-center items-center ${textColor}`}>
+        {text}
+      </span>
     </button>
   );
 };
