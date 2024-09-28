@@ -48,6 +48,7 @@ module.exports = {
         300: '#0CD380',
         200: '#9FF3D0',
         100: '#D8FBED',
+        50: '#EEFFF6',
       },
       headerText: '#000000', // Black 컬러
       bodyText: '#1F2937', // Gray 800 컬러

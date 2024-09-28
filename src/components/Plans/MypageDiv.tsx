@@ -7,7 +7,6 @@ const MypageDiv: React.FC = () => {
     <div className="flex flex-col items-center">
       <Profile colors="bg-white" />
       <ShowMoreButton category="즐겨잦기" />
-      <ShowMoreButton category="작성한 글" />
     </div>
   );
 };

@@ -6,7 +6,7 @@ interface DescriptionProps {
 
 const Description: React.FC<DescriptionProps> = ({ text }) => {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center max-w-[335px]">
       <div className="border-2 border-txt_primary px-[16px] py-[12px] rounded-description shadow-description bg-white">
         <p className="text-base text-center whitespace-pre-wrap">{text}</p>
       </div>
