@@ -5,18 +5,23 @@ import ExplainCloud from 'components/Cloud/ExplainCloud';
 import ButtonCloud from 'components/Cloud/ButtonCloud';
 import RandomCloud from 'components/Cloud/RandomCloud';
 import GameModal from 'components/Modal/GameModal';
+import { useQuery } from 'react-query';
+import { MinigameResponse } from 'types/MinigameResponse.type';
+import { getMinigames } from 'hooks/useGame';
+import { Minigame } from 'types/Minigame.type';
 
 const MiniGame: React.FC = () => {
-  const [gameType, setGameType] = useState<string>('반말 모드');
+  const { data, error } = useQuery<MinigameResponse, Error>('minigames', getMinigames);
+
+  const gameList: Minigame[] = data?.minigames || [];
+  const [gameType, setGameType] = useState<string>(gameList[0]?.name || '');
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isRunning, setIsRunning] = useState<boolean>(false);
-  const [pendingAction, setPendingAction] = useState<(() => void) | null>(null); // 클릭된 액션을 저장할 상태
+  const [pendingAction, setPendingAction] = useState<(() => void) | null>(null);
 
-  const gameList = [
-    { id: 1, name: '반말 모드', description: '반말로 대화하는 게임입니다.' },
-    { id: 2, name: '훈민정음', description: '훈민정음을 배우는 게임입니다.' },
-    { id: 3, name: '초성 퀴즈', description: '초성을 맞추는 퀴즈 게임입니다.' },
-  ];
+  if (error) {
+    return <div>Error : {error.message}</div>;
+  }
 
   const handleModalOpen = (action: () => void) => {
     setPendingAction(() => action); // 클릭한 액션 저장
