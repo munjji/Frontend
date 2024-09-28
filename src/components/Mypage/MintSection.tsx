@@ -19,6 +19,7 @@ const MintSection: React.FC = () => {
         category="밸런스 게임"
         content="100억 받고 50살까지 살기 vs 100살 살고 그냥 살기"
       />
+      {/* { favorites.length === 0 ? <Nofavorite/>} : ''*/}
     </div>
   );
 };
