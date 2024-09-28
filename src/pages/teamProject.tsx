@@ -8,7 +8,7 @@ const TeamProject: React.FC = () => {
     <div className="flex flex-col relative h-full">
       <NavBar subject="team" />
       {/* 구름 아이콘 카테고리 */}
-      <div className="mt-[27px]">
+      <div className="mt-[27px] mx-auto">
         <Description text={`원하는 카테고리를 알려주세요`} />
         <img
           src="/assets/GoormCharacter.svg"
