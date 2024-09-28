@@ -1,5 +1,5 @@
-import NavBar from 'components/NavBar';
 import React, { useEffect, useState } from 'react';
+import NavBar from 'components/Bar/NavBar';
 import ShowGame from './Game/ShowGame';
 import ExplainCloud from 'components/Cloud/ExplainCloud';
 import ButtonCloud from 'components/Cloud/ButtonCloud';
@@ -11,21 +11,31 @@ import { getMinigames } from 'hooks/useGame';
 import { Minigame } from 'types/Minigame.type';
 
 const MiniGame: React.FC = () => {
-  const { data, error, isLoading } = useQuery<MinigameResponse, Error>('minigames', getMinigames);
+  const { data, error, isLoading } = useQuery<MinigameResponse, Error>('minigames', getMinigames, {
+    refetchOnWindowFocus: false, // 창 포커스 시 재조회 방지
+  });
 
-  const gameList: Minigame[] = data?.minigames || [];
+  const [gameList, setGameList] = useState<Minigame[]>([]);
   const [gameType, setGameType] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [pendingAction, setPendingAction] = useState<(() => void) | null>(null);
 
+  useEffect(() => {
+    if (data) {
+      setGameList(data.minigames);
+      setGameType(data.minigames[0]?.name || ''); // 첫 번째 게임의 이름으로 초기화
+    }
+  }, [data]);
+
+  if (isLoading) {
+    return <div>Loading...</div>; // 로딩 중 UI
+  }
+
   if (error) {
     return <div>Error: {error.message}</div>; // UI에 에러 메시지 표시
   }
 
-  if (data) {
-    console.log(data);
-  }
   const handleModalOpen = (action: () => void) => {
     setPendingAction(() => action);
     setIsModalOpen(true);

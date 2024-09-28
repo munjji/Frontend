@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ExpandedBox from 'components/box/ExpandedBox';
-import NavBar from 'components/NavBar';
+import NavBar from 'components/Bar/NavBar';
 
 const IceBreaking: React.FC = () => {
   const [activeBoxIndex, setActiveBoxIndex] = useState<number>(0); // 기본값으로 첫 번째 박스 활성화

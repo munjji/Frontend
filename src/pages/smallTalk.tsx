@@ -1,5 +1,5 @@
 import { LargeButton } from 'components/Button/Button';
-import NavBar from 'components/NavBar';
+import NavBar from 'components/Bar/NavBar';
 import Description from 'components/ToolTips/Description';
 
 //  MBTI 부분을 텍스트로 받아와야 함
