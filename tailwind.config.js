@@ -80,6 +80,7 @@ module.exports = {
       fontSize: {
         base: '16px',
         large: '24px',
+        xlarge: '48px',
       },
       borderRadius: {
         description: '16px',

@@ -8,8 +8,8 @@ const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-green-200">
-      <div className="w-[375px] h-[812px]">
+    <div className="flex justify-center items-center w-screen h-screen bg-green-200">
+      <div className="w-full h-full">
         <QueryClientProvider client={queryClient}>
           <BrowserRouter>
             <AppRoutes />
