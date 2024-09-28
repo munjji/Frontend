@@ -2,7 +2,7 @@ import React from 'react';
 import titleContentsData from 'data/titleContentsData';
 import { useHistory } from 'react-router-dom';
 
-const NavBar: React.FC<{ subject: string }> = ({ subject }) => {
+const NavBar: React.FC<{ subject: string; nonIcon?: boolean }> = ({ subject, nonIcon }) => {
   const history = useHistory();
 
   const goBack = () => {
@@ -15,8 +15,14 @@ const NavBar: React.FC<{ subject: string }> = ({ subject }) => {
         <img src="/assets/left_arrow.svg" alt="left_arrow" />
       </button>
       <div className="flex items-center justify-center gap-[4px]">
-        <img className="w-[20px] h-[20px]" src={`/assets/${subject}.svg`} alt={subject} />
-        <p className="text-base text-center">{titleContentsData[subject].title}</p>
+        {nonIcon ? (
+          ''
+        ) : (
+          <img className="w-[20px] h-[20px]" src={`/assets/${subject}.svg`} alt={subject} />
+        )}
+        <p className="text-base text-center">
+          {nonIcon ? `${subject}` : titleContentsData[subject].title}
+        </p>
       </div>
     </div>
   );

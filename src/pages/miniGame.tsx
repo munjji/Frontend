@@ -19,10 +19,6 @@ const MiniGame: React.FC = () => {
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [pendingAction, setPendingAction] = useState<(() => void) | null>(null);
 
-  if (error) {
-    return <div>Error : {error.message}</div>;
-  }
-
   const handleModalOpen = (action: () => void) => {
     setPendingAction(() => action); // 클릭한 액션 저장
     setIsModalOpen(true);
