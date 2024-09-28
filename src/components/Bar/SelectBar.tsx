@@ -4,7 +4,7 @@ const SelectBar: React.FC<{
   selected: 'plans' | 'mypage';
   setSelected: (selection: 'plans' | 'mypage') => void;
 }> = ({ selected, setSelected }) => {
-  const [indicatorPosition, setIndicatorPosition] = useState(0); // 인디케이터 위치
+  const [indicatorPosition, setIndicatorPosition] = useState(0);
 
   const handleSelect = (selection: 'plans' | 'mypage') => {
     setSelected(selection);

@@ -21,16 +21,13 @@ const MiniGame: React.FC = () => {
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [pendingAction, setPendingAction] = useState<(() => void) | null>(null);
 
+  // 처음 랜더링 시, undefined 나오는 것을 방지하기 위해
   useEffect(() => {
     if (data) {
       setGameList(data.minigames);
-      setGameType(data.minigames[0]?.name || ''); // 첫 번째 게임의 이름으로 초기화
+      setGameType(data.minigames[0]?.name || '');
     }
   }, [data]);
-
-  if (isLoading) {
-    return <div>Loading...</div>; // 로딩 중 UI
-  }
 
   if (error) {
     return <div>Error: {error.message}</div>; // UI에 에러 메시지 표시
