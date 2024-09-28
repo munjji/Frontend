@@ -30,9 +30,7 @@ const AppRoutes: React.FC = () => {
       <Route exact path="/plans/content-recommendation" component={ContentRecommendation} />
       <Route path="/plans/content-recommendation/drinking" component={Drinking} />
       <Route path="/plans/content-recommendation/team-project" component={TeamProject} />
-      <Route path="/plans/content-recommendation/networking-party"
-        component={NetworkingParty}
-      />
+      <Route path="/plans/content-recommendation/networking-party" component={NetworkingParty} />
     </Switch>
   );
 };
