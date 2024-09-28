@@ -20,7 +20,7 @@ const Drinking: React.FC = () => {
         </div>
 
         {/* description 및 다른게임/시작하기 */}
-        <div className="absolute bottom-[44px] items-center">
+        <div className="absolute flex flex-col justify-center bottom-[44px] items-center">
           <Description
             text={`외국어, 외래어를 사용하지 않는\n게임이에요.\n시작 버튼을 누르면 제가 타이머를 셀께요!`}
           />

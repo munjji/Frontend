@@ -10,7 +10,7 @@ const NavBar: React.FC<{ subject: string; nonIcon?: boolean }> = ({ subject, non
   };
 
   return (
-    <div className="flex py-[10px] justify-center items-center">
+    <div className="flex py-[16px] justify-center items-center">
       <button type="button" className="absolute left-[20px]" onClick={goBack}>
         <img src="/assets/left_arrow.svg" alt="left_arrow" />
       </button>
